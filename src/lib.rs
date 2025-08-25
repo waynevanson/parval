@@ -16,6 +16,30 @@ pub struct ValidationResidual<E, W> {
 }
 
 impl<T, E, W> Validation<T, E, W> {
+    pub fn new_ok(value: T) -> Self {
+        Self {
+            warnings: Vec::new(),
+            result: Ok(value),
+        }
+    }
+
+    pub fn new_err(err: E) -> Self {
+        Self {
+            warnings: Vec::new(),
+            result: Err(vec![err]),
+        }
+    }
+
+    pub fn new_errs<I>(errs: I) -> Self
+    where
+        I: Iterator<Item = E>,
+    {
+        Self {
+            warnings: Vec::new(),
+            result: Err(Vec::from_iter(errs)),
+        }
+    }
+
     pub fn ok(self) -> Option<T> {
         self.result.ok()
     }
