@@ -6,6 +6,4 @@ authors = ["Wayne Van Son <waynevanson@gmail.com>"]
 description = "Validation pattern compatible with concurrency models"
 license = "MIT"
 keywords = ["validation", "monad", "structure", "control", "flow"]
-
-
-[dependencies]
+repository = "https://github.com/waynevanson/parval"
